@@ -1,10 +1,37 @@
-body,
-.tooltip {
-  font-family: "Source Sans Pro", sans-serif;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-}
-
 .header-bar {
   background-color: #f9322c;
+}
+
+.correct-answer {
+  background-color: lightgreen;
+  /* Adjust other styles as needed */
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  /* Adjust as needed */
+}
+
+.buttons .show-answer,
+.buttons .ask-gbt {
+  flex: 1;
+  /* Equal width for both buttons */
+  margin-right: 10px;
+  /* Adjust spacing between buttons */
+}
+
+/* Button Styles */
+.show-answer-btn, .ask-gbt-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-answer-btn:hover, .ask-gbt-btn:hover {
+  background-color: #218838;
 }
