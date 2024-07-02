@@ -3,7 +3,7 @@
 
         @foreach ($exams as $exam)
             <div class="question-discussion-header">{{ $exam->question_number }}<br></div>
-            <div class="question-body mt-3 pt-3 border-top">
+            <div class="question-body mt-3 pt-3">
                 <p class="card-text">{!! str_replace('(//img url)', '<br><br><img src=', str_replace('(img url//)', '><br><br>', $exam->question)) !!}
                 </p>
                 <div class="question-choices-container">
