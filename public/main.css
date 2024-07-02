@@ -2,36 +2,84 @@
   background-color: #f9322c;
 }
 
-.correct-answer {
-  background-color: lightgreen;
-  /* Adjust other styles as needed */
+.container-question {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #d32b2b;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  margin-bottom: 2%;
+
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+.question-number {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+.question-text p {
+  margin: 0;
+}
+
+.question-options ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-options li {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.question-options li:hover {
+  background: #e0e0e0;
+}
+
+.multi-choice-letter {
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  /* Adjust as needed */
+  margin-top: 20px;
 }
 
-.buttons .show-answer,
-.buttons .ask-gbt {
-  flex: 1;
-  /* Equal width for both buttons */
-  margin-right: 10px;
-  /* Adjust spacing between buttons */
-}
-
-/* Button Styles */
-.show-answer-btn, .ask-gbt-btn {
+.buttons button {
+  font-family: 'Roboto', sans-serif;
   padding: 10px 20px;
-  background-color: #28a745;
-  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
+}
+
+.show-answer-btn, .ask-gbt-btn {
+  background-color: #28a745;
+  color: white;
 }
 
 .show-answer-btn:hover, .ask-gbt-btn:hover {
   background-color: #218838;
+}
+
+.correct-answer {
+  background-color: #0d8d3e;
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }

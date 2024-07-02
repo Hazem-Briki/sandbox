@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container-object">
         @foreach ($exams as $exam)
-            <div class="container">
+            <div class="container-question">
                 <div class="question">
                     <div class="question-number">{{ $exam->question_number }}</div>
                     <div class="question-text">
@@ -48,7 +48,7 @@
     <script>
         $(document).ready(function() {
             $('.show-answer-btn').on('click', function() {
-                var $questionContainer = $(this).closest('.container').find('.question'); // Find the closest question container
+                var $questionContainer = $(this).closest('.container-question').find('.question'); // Find the closest question container
                 var correctAnswer = $(this).attr('id'); // Get the correct answer ID (A, B, C, etc.)
 
                 if ($(this).text() === 'Show Answer') {
