@@ -9,6 +9,11 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function data()
+    {            // Fetch the first 5 rows from your table
+        $exams = Exam::inRandomOrder()->take(20)->get();
+        return view('data-engineer', ['exams' => $exams]);
+    }
 
     public function logout()
     {
@@ -19,9 +24,7 @@ class UserController extends Controller
     public function showCorrectHomepage()
     {
         if (auth()->check()) {
-            // Fetch the first 5 rows from your table
-            $exams = Exam::take(5)->get();
-            return view('homepage-feed', ['exams' => $exams]);
+            return view('homepage-feed');
         } else {
             return view('homepage');
         }
