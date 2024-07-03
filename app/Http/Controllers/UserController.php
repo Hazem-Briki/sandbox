@@ -6,14 +6,38 @@ use App\Models\Exam;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserController extends Controller
 {
     public function data()
-    {            // Fetch the first 5 rows from your table
-        $exams = Exam::inRandomOrder()->take(20)->get();
-        return view('data-engineer', ['exams' => $exams]);
+    {
+        // Fetch the first 20 questions by their question_number
+        $exams = Exam::orderBy('question_number')->take(20)->get();
+    
+        // Shuffle the exams
+        $shuffledExams = $exams->shuffle();
+    
+        // Paginate the shuffled exams manually
+        $perPage = 5;
+        $page = request()->get('page', 1);
+        $offset = ($page - 1) * $perPage;
+        $currentPageExams = $shuffledExams->slice($offset, $perPage)->values();
+    
+        $paginatedExams = new \Illuminate\Pagination\LengthAwarePaginator(
+            $currentPageExams,
+            $shuffledExams->count(),
+            $perPage,
+            $page,
+            ['path' => request()->url(), 'query' => request()->query()]
+        );
+    
+        return view('data-engineer', ['exams' => $paginatedExams]);
     }
+    
+    
 
     public function logout()
     {
